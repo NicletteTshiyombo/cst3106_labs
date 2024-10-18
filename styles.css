@@ -1,4 +1,4 @@
-     <style>
+        <style>
             body {
                 margin: 0;
                 font-family: Arial, sans-serif;
@@ -20,6 +20,7 @@
                 text-align: center;
                 padding: 14px 16px;
                 text-decoration: none;
+            }
             .topnav a:hover {
                 background-color: #ddd;
                 color: black;

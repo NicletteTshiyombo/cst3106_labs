@@ -1,97 +1,38 @@
 <!doctype html>
-
 <html lang="en">
     <head>
-        <style>
-            body {
-                margin: 0;
-                font-family: Arial, sans-serif;
-                line-height: 1.6;
-            }
-            /* Style the header */
-            .header {
-                background-color: #f1f1f1;
-                padding: 20px;
-                text-align: center;
-            }
-            .topnav {
-                overflow: hidden;
-                background-color: #333;
-            }
-            .topnav a {
-                float: left;
-                color: #f2f2f2;
-                text-align: center;
-                padding: 14px 16px;
-                text-decoration: none;
-            .topnav a:hover {
-                background-color: #ddd;
-                color: black;
-            }
-            * {
-                box-sizing: border-box;
-            }
-            .row {
-                display: flex;
-                flex-wrap: wrap;
-            }
-            .column {
-                flex: 33.33%;
-                padding: 15px;
-            }
-            /* Left and right column */
-            .column.side {
-                flex: 25%;
-            }
-            /* Middle column */
-            .column.middle {
-                flex: 50%;
-            }
-            /* Style the footer */
-            .footer {
-                background-color: #f1f1f1;
-                padding: 10px;
-                text-align: center;
-            }
-            h2 {
-                margin-top: 0;
-            }
-            .content-section {
-                padding: 15px;
-            }
-            .content-section p {
-                margin: 5px 0;
-            }
-        </style>
+        <link rel="stylesheet" href="styles.css">
+
     </head>
     <body>
         <div class="header">
-            <h1>Niclette Tshiyombo 343-988-6653 ntshiyombo@myseneca.ca</h1>
+            <h1>Niclette Tshiyombo</h1>
+            <h2>343-988-6653 | ntshiyombo@myseneca.ca</h2>
         </div>
         
         <div class="topnav">
             <a href="#objective">Objective</a>
-            <a href="#education">Education</a>
-            <a href="#">Skills</a>
-            <a href="#">Experience</a>
+
+            <a href="#skills">Skills</a>
+            <a href="#experience">Experience</a>
             <a href="#projects">Projects</a>
         </div>
         
-        <!-- Objective Section -->
-        <div class="content-section">
-            <h2 id="objective">Objective</h2>
+
+        <div class="content-section" id="objective">
+            <h2>Objective</h2>
             <p>To leverage my strong background in web development, version control, and cloud services to contribute to impactful projects in a dynamic and forward-thinking organization.</p>
         </div>
 
-        <!-- Education Section -->
-        <div class="content-section">
-            <h2 id="education">Education</h2>
+
+        <div class="content-section" id="education">
+            <h2>Education</h2>
             <p><strong>Bachelor of Technology Business Systems Development</strong> Algonquin College, 2027</p>
             <p><strong>Relevant Courses:</strong> Database, Web Development, Operating Systems</p>
         </div>
         
         <!-- Skills Section -->
-        <div class="content-section">
+        <div class="content-section" id="skills">
             <h2>Skills</h2>
             <div class="row">
                 <div class="column">
@@ -110,28 +51,25 @@
         </div>
 
         <!-- Experience Section -->
-        <div class="content-section">
+        <div class="content-section" id="experience">
             <h2>Experience</h2>
             <div class="row">
                 <div class="column middle">
                     <h3>Bilingual Service Desk Analyst</h3>
                     <p><strong>Global Mentoring Solutions</strong> May 2021 to Aug 2023</p>
                     <ul>
-                        <li>Provide level 2 support to end users by phone and chats.</li>
-                        <li>data backup, restoration and profile migration,
-                             sotware update, update PC operating systems.</li>
+                        <li>Provided level 2 support to end users by phone and chats.</li>
+                        <li>Data backup, restoration, and profile migration, software update, and OS updates.</li>
                         <li>Optimized web applications for maximum speed and scalability.</li>
-                    </ul>
-                </div>
-                
                     </ul>
                 </div>
             </div>
         </div>
 
         <!-- Projects Section -->
-        <div class="content-section">
-            <h2 id="projects">Projects</h2>
+        <iv class="content-section" id="projects">
+            <h2>Projects</h2>
+
             <div class="row">
                 <div class="column side">
                     <h3>Portfolio Website</h3>
@@ -140,8 +78,6 @@
                 <div class="column side">
                     <h3>E-commerce Platform</h3>
                     <p>Developed an online store with product listings, a shopping cart, and checkout features. Integrated PayPal and Stripe payment gateways. Built with JavaScript, Node.js, and MongoDB.</p>
-                </div>
-            
                 </div>
             </div>
         </div>
