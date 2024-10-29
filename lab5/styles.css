@@ -1,0 +1,85 @@
+/* Global Styles */
+body {
+  font-family: 'Open Sans', sans-serif;
+  background-color: #2B3A67; /* Dark Blue */
+  color: #FFFFFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+/* Game Board Container */
+.game-board {
+  width: 90%;
+  max-width: 800px;
+  background-color: #FFFFFF; /* White background for board */
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+/* Header */
+header h1 {
+  font-family: 'Montserrat', sans-serif;
+  color: #FF7F11; /* Bright Orange */
+  margin: 0;
+}
+
+/* Dice Container */
+.dice-container {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.dice {
+  width: 50px;
+  height: 50px;
+  background-color: #E1E1E1; /* Soft Gray */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  border-radius: 10%; /* Rounded corners */
+}
+
+.roll-button {
+  background-color: #FF7F11; /* Bright Orange */
+  color: #FFFFFF;
+  font-size: 16px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.roll-button:hover {
+  background-color: #A3D977; /* Light Green for hover effect */
+}
+
+/* Scorecard */
+.scorecard h2 {
+  font-family: 'Roboto', sans-serif;
+  color: #2B3A67; /* Dark Blue */
+}
+
+.scorecard table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.scorecard th,
+.scorecard td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #E1E1E1;
+}
+
+.scorecard .score {
+  text-align: center;
+}
