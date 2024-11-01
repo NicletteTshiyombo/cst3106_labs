@@ -1,73 +1,89 @@
 class YatzyGame {
-  constructor(players) {
-    this.players = players;                // List of players
-    this.currentPlayerIndex = 0;           // Tracks current player index
-    this.currentRound = 1;                 // Tracks the current round
-    this.scores = {};                      // Tracks scores for each player
-    this.isGameActive = false;             // Game state
-
-    players.forEach(player => {            // Initialize each player's score
-      this.scores[player] = 0;
-    });
-  }
-
-  
-  startNewGame() {
-    this.currentPlayerIndex = 0;
-    this.currentRound = 1;
-    this.isGameActive = true;
-    for (let player in this.scores) {
-      this.scores[player] = 0;             
-    }
-    console.log("New game started!");
-  }
-
- 
-  endTurn() {
-    if (!this.isGameActive) return console.log("Game is not active.");
-
-    const currentPlayer = this.players[this.currentPlayerIndex];
-    console.log(`${currentPlayer}'s turn has ended.`);
-
-  
-    this.currentPlayerIndex = (this.currentPlayerIndex + 1) % this.players.length;
-
-   
-    if (this.currentPlayerIndex === 0) {
-      this.currentRound++;
-      console.log(`Round ${this.currentRound} begins.`);
+    constructor() {
+        this.totalScore = 0;
+        this.round = 1;
+        this.rollCount = 3;
+        this.engine = new YatzyEngine();
+        this.initializeGame();
     }
 
-  
-    if (this.currentRound > 15) this.endGame();
-  }
-
-  endGame() {
-    this.isGameActive = false;
-    let highestScore = 0;
-    let winner = null;
-
-    for (let player in this.scores) {
-      if (this.scores[player] > highestScore) {
-        highestScore = this.scores[player];
-        winner = player;
-      }
+    initializeGame() {
+        document.getElementById('roll-button').addEventListener('click', () => this.rollDice());
+        document.getElementById('end-turn-button').addEventListener('click', () => this.endTurn());
+        document.getElementById('end-game-button').addEventListener('click', () => this.endGame());
+        this.updateRollCountDisplay();
+        this.updateTotalScoreDisplay();
     }
-    console.log(`Game over! ${winner} wins with a score of ${highestScore}.`);
-  }
-  
-  updateScore(points) {
-    if (!this.isGameActive) return console.log("Game is not active.");
-    const currentPlayer = this.players[this.currentPlayerIndex];
-    this.scores[currentPlayer] += points;
-    console.log(`${currentPlayer} scored ${points}. Total score: ${this.scores[currentPlayer]}`);
-  }
+
+    rollDice() {
+        if (this.rollCount > 0) {
+            dice.forEach(die => {
+                if (!die.selected) {
+                    die.value = die.roll();
+                }
+            });
+            displayDice();
+            this.rollCount--;
+            this.updateRollCountDisplay();
+        }
+        if (this.rollCount === 0) {
+            rollButton.disabled = true;
+        }
+    }
+
+    endTurn() {
+        const diceValues = dice.map(die => die.value);
+        const { category, score } = this.engine.getBestCategory(diceValues);
+        this.engine.scoreTable[category] = score;
+        this.totalScore += score;
+
+        document.getElementById(`score-${category.toLowerCase().replace(/ /g, '-')}`).textContent = score;
+        this.updateTotalScoreDisplay();
+
+        this.round++;
+        this.resetRollCount();
+
+        if (this.round > 13) {
+            this.endGame();
+        }
+    }
+
+    endGame() {
+        alert(`Game Over! Your final score is ${this.totalScore} points.`);
+        this.startNewGame();
+    }
+
+    startNewGame() {
+        this.totalScore = 0;
+        this.round = 1;
+        this.engine = new YatzyEngine();
+        this.clearScorecard();
+        this.resetRollCount();
+        this.updateTotalScoreDisplay();
+    }
+
+    clearScorecard() {
+        Object.keys(this.engine.scoreTable).forEach(category => {
+            this.engine.scoreTable[category] = null;
+            document.getElementById(`score-${category.toLowerCase().replace(/ /g, '-')}`).textContent = '';
+        });
+    }
+
+    updateRollCountDisplay() {
+        document.getElementById('roll-count').textContent = this.rollCount;
+    }
+
+    resetRollCount() {
+        this.rollCount = 3;
+        rollButton.disabled = false;
+        this.updateRollCountDisplay();
+        dice.forEach(die => die.selected = false);
+        displayDice();
+    }
+
+    updateTotalScoreDisplay() {
+        document.getElementById('total-score').textContent = this.totalScore;
+    }
 }
 
-const game = new YatzyGame(["Alice", "Bob"]);
-game.startNewGame();         // Start a new game
-game.updateScore(25);        // Alice scores 25 points
-game.endTurn();              // Alice ends her turn
-game.updateScore(30);        // Bob scores 30 points
-game.endTurn();              // Bob ends his turn
-game.endGame();              // End the game and announce the winner
+const game = new YatzyGame();
