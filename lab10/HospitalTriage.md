@@ -6,8 +6,8 @@ The Hospital Triage App will provide an intuitive interface for both patients an
 
 ### Fonts
 
-**Roboto: Utilized for all headings, button texts, and other stand-out elements due to its clean, modern look and high legibility on digital screens.
-**Open Sans: Employed for all body text to differentiate it from headings and provide a comfortable reading experience for longer paragraphs.
+Roboto: Utilized for all headings, button texts, and other stand-out elements due to its clean, modern look and high legibility on digital screens.
+Open Sans: Employed for all body text to differentiate it from headings and provide a comfortable reading experience for longer paragraphs.
 
 ### Colour Palette
 
