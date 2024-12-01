@@ -35,3 +35,5 @@ This entity contains details about the rooms available for patient care. It trac
 - `status` (boolean): The occupancy status of the room; 'true' if occupied, 'false' if available.
 
 ## Database ERD (Entity-Relationship Diagram)
+
+<img width="858" alt="Schema" src="https://github.com/user-attachments/assets/811108b9-a587-4b52-96f6-1bd5365d2b48">
