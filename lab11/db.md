@@ -37,3 +37,5 @@ This entity contains details about the rooms available for patient care. It trac
 ## Database ERD (Entity-Relationship Diagram)
 
 <img width="858" alt="Schema" src="https://github.com/user-attachments/assets/811108b9-a587-4b52-96f6-1bd5365d2b48">
+
+The ERD illustrates the relationships between entities. The Patients entity is connected to the Priorities and Rooms entities through foreign keys, indicating the relationship between a patient's urgency level and their room assignment.
